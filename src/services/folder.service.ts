@@ -8,6 +8,12 @@ interface CreateFolderInput {
 
 export const createFolderService = async ({ name, parentFolderId }: CreateFolderInput) => {
 
+    if (parentFolderId) {
+        const parentExists = await Folder.findById(parentFolderId);
+        if (!parentExists) {
+            throw new Error("Parent folder not found");
+        }
+    }
 
     const existingFolder = await Folder.findOne({ name, parentFolderId })
 
