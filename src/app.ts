@@ -19,7 +19,9 @@ app.use(cors({
     allowedHeaders: ["Authorization", "Content-Type"],
 }))
 
+import folderRouter from "./routes/folder.routes.js"
 
+app.use("/folder", folderRouter)
 
 
 
