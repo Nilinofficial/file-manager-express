@@ -20,9 +20,12 @@ app.use(cors({
 }))
 
 import folderRouter from "./routes/folder.routes.js"
+import errorMiddleware from './middleware/error.middleware.js';
 
 app.use("/folder", folderRouter)
 
+
+app.use(errorMiddleware);
 
 
 export default app

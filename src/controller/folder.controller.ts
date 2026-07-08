@@ -10,7 +10,6 @@ export const createFolder = async (
         const folder = await createFolderService({ name, parentFolderId });
         res.status(201).json(folder);
     } catch (err) {
-        console.log(err);
-
+        next(err)
     }
 }
